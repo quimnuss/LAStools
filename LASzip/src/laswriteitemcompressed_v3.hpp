@@ -46,10 +46,10 @@ public:
 
   LASwriteItemCompressed_POINT14_v3(ArithmeticEncoder* enc);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
-  BOOL chunk_sizes();
-  BOOL chunk_bytes();
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL chunk_bytes();
 
   ~LASwriteItemCompressed_POINT14_v3();
 
@@ -79,13 +79,13 @@ private:
   ArithmeticEncoder* enc_point_source;
   ArithmeticEncoder* enc_gps_time;
 
-  BOOL changed_classification;
-  BOOL changed_flags;
-  BOOL changed_intensity;
-  BOOL changed_scan_angle;
-  BOOL changed_user_data;
-  BOOL changed_point_source;
-  BOOL changed_gps_time;
+  LAStools::BOOL changed_classification;
+  LAStools::BOOL changed_flags;
+  LAStools::BOOL changed_intensity;
+  LAStools::BOOL changed_scan_angle;
+  LAStools::BOOL changed_user_data;
+  LAStools::BOOL changed_point_source;
+  LAStools::BOOL changed_gps_time;
 
   U32 num_bytes_channel_returns_XY;
   U32 num_bytes_Z;
@@ -100,7 +100,7 @@ private:
   U32 current_context;
   LAScontextPOINT14 contexts[4];
 
-  BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
   void write_gps_time(const U64I64F64 gps_time);
 };
 
@@ -110,10 +110,10 @@ public:
 
   LASwriteItemCompressed_RGB14_v3(ArithmeticEncoder* enc);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
-  BOOL chunk_sizes();
-  BOOL chunk_bytes();
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL chunk_bytes();
 
   ~LASwriteItemCompressed_RGB14_v3();
 
@@ -127,14 +127,14 @@ private:
 
   ArithmeticEncoder* enc_RGB;
 
-  BOOL changed_RGB;
+  LAStools::BOOL changed_RGB;
 
   U32 num_bytes_RGB;
 
   U32 current_context;
   LAScontextRGB14 contexts[4];
 
-  BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
 };
 
 class LASwriteItemCompressed_RGBNIR14_v3 : public LASwriteItemCompressed
@@ -143,10 +143,10 @@ public:
 
   LASwriteItemCompressed_RGBNIR14_v3(ArithmeticEncoder* enc);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
-  BOOL chunk_sizes();
-  BOOL chunk_bytes();
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL chunk_bytes();
 
   ~LASwriteItemCompressed_RGBNIR14_v3();
 
@@ -162,8 +162,8 @@ private:
   ArithmeticEncoder* enc_RGB;
   ArithmeticEncoder* enc_NIR;
 
-  BOOL changed_RGB;
-  BOOL changed_NIR;
+  LAStools::BOOL changed_RGB;
+  LAStools::BOOL changed_NIR;
 
   U32 num_bytes_RGB;
   U32 num_bytes_NIR;
@@ -171,7 +171,7 @@ private:
   U32 current_context;
   LAScontextRGBNIR14 contexts[4];
 
-  BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
 };
 
 class LASwriteItemCompressed_WAVEPACKET14_v3 : public LASwriteItemCompressed
@@ -180,10 +180,10 @@ public:
 
   LASwriteItemCompressed_WAVEPACKET14_v3(ArithmeticEncoder* enc);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
-  BOOL chunk_sizes();
-  BOOL chunk_bytes();
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL chunk_bytes();
 
   ~LASwriteItemCompressed_WAVEPACKET14_v3();
 
@@ -197,14 +197,14 @@ private:
 
   ArithmeticEncoder* enc_wavepacket;
 
-  BOOL changed_wavepacket;
+  LAStools::BOOL changed_wavepacket;
 
   U32 num_bytes_wavepacket;
 
   U32 current_context;
   LAScontextWAVEPACKET14 contexts[4];
 
-  BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
 };
 
 class LASwriteItemCompressed_BYTE14_v3 : public LASwriteItemCompressed
@@ -213,10 +213,10 @@ public:
 
   LASwriteItemCompressed_BYTE14_v3(ArithmeticEncoder* enc, U32 number);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
-  BOOL chunk_sizes();
-  BOOL chunk_bytes();
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL chunk_bytes();
 
   ~LASwriteItemCompressed_BYTE14_v3();
 
@@ -232,13 +232,13 @@ private:
 
   U32* num_bytes_Bytes;
 
-  BOOL* changed_Bytes;
+  LAStools::BOOL* changed_Bytes;
 
   U32 current_context;
   LAScontextBYTE14 contexts[4];
 
   U32 number;
-  BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndCompressors(U32 context, const U8* item);
 };
 
 #endif

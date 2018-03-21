@@ -55,12 +55,12 @@ public:
   ~LASwritePoint();
 
   // should only be called *once*
-  BOOL setup(const U32 num_items, const LASitem* items, const LASzip* laszip=0);
+  LAStools::BOOL setup(const U32 num_items, const LASitem* items, const LASzip* laszip=0);
 
-  BOOL init(ByteStreamOut* outstream);
-  BOOL write(const U8 * const * point);
-  BOOL chunk();
-  BOOL done();
+  LAStools::BOOL init(ByteStreamOut* outstream);
+  LAStools::BOOL write(const U8 * const * point);
+  LAStools::BOOL chunk();
+  LAStools::BOOL done();
 
 private:
   ByteStreamOut* outstream;
@@ -69,7 +69,7 @@ private:
   LASwriteItem** writers_raw;
   LASwriteItem** writers_compressed;
   ArithmeticEncoder* enc;
-  BOOL layered_las14_compression;
+  LAStools::BOOL layered_las14_compression;
   // used for chunking
   U32 chunk_size;
   U32 chunk_count;
@@ -79,8 +79,8 @@ private:
   U32* chunk_bytes;
   I64 chunk_start_position;
   I64 chunk_table_start_position;
-  BOOL add_chunk_to_table();
-  BOOL write_chunk_table();
+  LAStools::BOOL add_chunk_to_table();
+  LAStools::BOOL write_chunk_table();
 };
 
 #endif

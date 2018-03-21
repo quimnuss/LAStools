@@ -61,7 +61,7 @@
 class laszip_dll_inventory
 {
 public:
-  BOOL active() const { return (first == FALSE); };
+  LAStools::BOOL active() const { return (first == FALSE); };
   U32 number_of_point_records;
   U32 number_of_points_by_return[16];
   I32 max_X;
@@ -109,7 +109,7 @@ public:
     first = TRUE;
   }
 private:
-  BOOL first;
+  LAStools::BOOL first;
 };
 
 typedef struct laszip_dll {
@@ -132,14 +132,14 @@ typedef struct laszip_dll {
   F64 lax_r_max_x;
   F64 lax_r_max_y;
   CHAR* lax_file_name;
-  BOOL lax_create;
-  BOOL lax_append;
-  BOOL lax_exploit;
+  LAStools::BOOL lax_create;
+  LAStools::BOOL lax_append;
+  LAStools::BOOL lax_exploit;
   U32 las14_decompress_selective;
-  BOOL preserve_generating_software;
-  BOOL request_native_extension;
-  BOOL request_compatibility_mode;
-  BOOL compatibility_mode;
+  LAStools::BOOL preserve_generating_software;
+  LAStools::BOOL request_native_extension;
+  LAStools::BOOL request_compatibility_mode;
+  LAStools::BOOL compatibility_mode;
   U32 set_chunk_size;
   I32 start_scan_angle;
   I32 start_extended_returns;
@@ -4638,7 +4638,7 @@ laszip_open_reader_stream(
 
 /*---------------------------------------------------------------------------*/
 // The stream writer also supports software that writes the LAS header on its
-// own simply by setting the BOOL 'do_not_write_header' to TRUE. This function
+// own simply by setting the LAStools::BOOL 'do_not_write_header' to TRUE. This function
 // should then be called just prior to writing points as data is then written
 // to the current stream position
 LASZIP_API laszip_I32

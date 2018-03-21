@@ -36,7 +36,7 @@ class StreamingMedian5
 {
 public:
   I32 values[5];
-  BOOL high;
+  LAStools::BOOL high;
   void init()
   {
     values[0] = values[1] = values[2] = values[3] = values[4] = 0;

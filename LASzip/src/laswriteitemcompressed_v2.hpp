@@ -45,8 +45,8 @@ public:
 
   LASwriteItemCompressed_POINT10_v2(ArithmeticEncoder* enc);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
 
   ~LASwriteItemCompressed_POINT10_v2();
 
@@ -76,8 +76,8 @@ public:
 
   LASwriteItemCompressed_GPSTIME11_v2(ArithmeticEncoder* enc);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
 
   ~LASwriteItemCompressed_GPSTIME11_v2();
 
@@ -99,8 +99,8 @@ public:
 
   LASwriteItemCompressed_RGB12_v2(ArithmeticEncoder* enc);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
 
   ~LASwriteItemCompressed_RGB12_v2();
 
@@ -123,8 +123,8 @@ public:
 
   LASwriteItemCompressed_BYTE_v2(ArithmeticEncoder* enc, U32 number);
 
-  BOOL init(const U8* item, U32& context);
-  BOOL write(const U8* item, U32& context);
+  LAStools::BOOL init(const U8* item, U32& context);
+  LAStools::BOOL write(const U8* item, U32& context);
 
   ~LASwriteItemCompressed_BYTE_v2();
 

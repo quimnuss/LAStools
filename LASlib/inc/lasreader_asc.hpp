@@ -42,25 +42,25 @@ public:
 
   void set_scale_factor(const F64* scale_factor);
   void set_offset(const F64* offset);
-  virtual BOOL open(const CHAR* file_name, BOOL comma_not_point=FALSE);
+  virtual LAStools::BOOL open(const CHAR* file_name, LAStools::BOOL comma_not_point=FALSE);
 
   I32 get_format() const { return LAS_TOOLS_FORMAT_ASC; };
 
-  BOOL seek(const I64 p_index);
+  LAStools::BOOL seek(const I64 p_index);
 
   ByteStreamIn* get_stream() const;
-  void close(BOOL close_stream=TRUE);
-  BOOL reopen(const CHAR* file_name);
+  void close(LAStools::BOOL close_stream=TRUE);
+  LAStools::BOOL reopen(const CHAR* file_name);
 
   LASreaderASC();
   virtual ~LASreaderASC();
 
 protected:
-  BOOL read_point_default();
+  LAStools::BOOL read_point_default();
 
 private:
   bool piped;
-  BOOL comma_not_point;
+  LAStools::BOOL comma_not_point;
   F64* scale_factor;
   F64* offset;
   FILE* file;
@@ -81,7 +81,7 @@ private:
 class LASreaderASCrescale : public virtual LASreaderASC
 {
 public:
-  virtual BOOL open(const CHAR* file_name, BOOL comma_not_point=FALSE);
+  virtual LAStools::BOOL open(const CHAR* file_name, LAStools::BOOL comma_not_point=FALSE);
   LASreaderASCrescale(F64 x_scale_factor, F64 y_scale_factor, F64 z_scale_factor);
 
 protected:
@@ -91,7 +91,7 @@ protected:
 class LASreaderASCreoffset : public virtual LASreaderASC
 {
 public:
-  virtual BOOL open(const CHAR* file_name, BOOL comma_not_point=FALSE);
+  virtual LAStools::BOOL open(const CHAR* file_name, LAStools::BOOL comma_not_point=FALSE);
   LASreaderASCreoffset(F64 x_offset, F64 y_offset, F64 z_offset);
 protected:
   F64 offset[3];
@@ -100,7 +100,7 @@ protected:
 class LASreaderASCrescalereoffset : public LASreaderASCrescale, LASreaderASCreoffset
 {
 public:
-  BOOL open(const CHAR* file_name, BOOL comma_not_point=FALSE);
+  LAStools::BOOL open(const CHAR* file_name, LAStools::BOOL comma_not_point=FALSE);
   LASreaderASCrescalereoffset(F64 x_scale_factor, F64 y_scale_factor, F64 z_scale_factor, F64 x_offset, F64 y_offset, F64 z_offset);
 };
 

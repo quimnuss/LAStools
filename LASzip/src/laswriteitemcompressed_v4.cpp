@@ -69,7 +69,7 @@ typedef struct LASpoint14
   U8 number_of_returns : 4;
 
   U8 dummy[3]; // for 8 byte alignment of the GPS time
-  BOOL gps_time_change;
+  LAStools::BOOL gps_time_change;
 
   F64 gps_time;
   U16 rgb[4];
@@ -202,7 +202,7 @@ LASwriteItemCompressed_POINT14_v4::~LASwriteItemCompressed_POINT14_v4()
   }
 }
 
-inline BOOL LASwriteItemCompressed_POINT14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASwriteItemCompressed_POINT14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
 {
   I32 i;
 
@@ -460,7 +460,7 @@ BOOL LASwriteItemCompressed_POINT14_v4::init(const U8* item, U32& context)
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_POINT14_v4::write(const U8* item, U32& context)
+inline LAStools::BOOL LASwriteItemCompressed_POINT14_v4::write(const U8* item, U32& context)
 {
   // get last
 
@@ -495,9 +495,9 @@ inline BOOL LASwriteItemCompressed_POINT14_v4::write(const U8* item, U32& contex
 
   // determine changed attributes
 
-  BOOL point_source_change = (((LASpoint14*)item)->point_source_ID != ((LASpoint14*)last_item)->point_source_ID);
-  BOOL gps_time_change = (((LASpoint14*)item)->gps_time != ((LASpoint14*)last_item)->gps_time);
-  BOOL scan_angle_change = (((LASpoint14*)item)->scan_angle != ((LASpoint14*)last_item)->scan_angle);
+  LAStools::BOOL point_source_change = (((LASpoint14*)item)->point_source_ID != ((LASpoint14*)last_item)->point_source_ID);
+  LAStools::BOOL gps_time_change = (((LASpoint14*)item)->gps_time != ((LASpoint14*)last_item)->gps_time);
+  LAStools::BOOL scan_angle_change = (((LASpoint14*)item)->scan_angle != ((LASpoint14*)last_item)->scan_angle);
 
   // get last and current return counts
 
@@ -743,7 +743,7 @@ inline BOOL LASwriteItemCompressed_POINT14_v4::write(const U8* item, U32& contex
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_POINT14_v4::chunk_sizes()
+inline LAStools::BOOL LASwriteItemCompressed_POINT14_v4::chunk_sizes()
 {
   U32 num_bytes = 0;
   ByteStreamOut* outstream = enc->getByteStreamOut();
@@ -871,7 +871,7 @@ inline BOOL LASwriteItemCompressed_POINT14_v4::chunk_sizes()
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_POINT14_v4::chunk_bytes()
+inline LAStools::BOOL LASwriteItemCompressed_POINT14_v4::chunk_bytes()
 {
   U32 num_bytes = 0;
   ByteStreamOut* outstream = enc->getByteStreamOut();
@@ -1166,7 +1166,7 @@ LASwriteItemCompressed_RGB14_v4::~LASwriteItemCompressed_RGB14_v4()
   }
 }
 
-inline BOOL LASwriteItemCompressed_RGB14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASwriteItemCompressed_RGB14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
 {
   /* should only be called when context is unused */
 
@@ -1259,7 +1259,7 @@ BOOL LASwriteItemCompressed_RGB14_v4::init(const U8* item, U32& context)
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_RGB14_v4::write(const U8* item, U32& context)
+inline LAStools::BOOL LASwriteItemCompressed_RGB14_v4::write(const U8* item, U32& context)
 {
   // get last
 
@@ -1334,7 +1334,7 @@ inline BOOL LASwriteItemCompressed_RGB14_v4::write(const U8* item, U32& context)
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_RGB14_v4::chunk_sizes()
+inline LAStools::BOOL LASwriteItemCompressed_RGB14_v4::chunk_sizes()
 {
   U32 num_bytes = 0;
   ByteStreamOut* outstream = enc->getByteStreamOut();
@@ -1359,7 +1359,7 @@ inline BOOL LASwriteItemCompressed_RGB14_v4::chunk_sizes()
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_RGB14_v4::chunk_bytes()
+inline LAStools::BOOL LASwriteItemCompressed_RGB14_v4::chunk_bytes()
 {
   U32 num_bytes = 0;
   ByteStreamOut* outstream = enc->getByteStreamOut();
@@ -1449,7 +1449,7 @@ LASwriteItemCompressed_RGBNIR14_v4::~LASwriteItemCompressed_RGBNIR14_v4()
   }
 }
 
-inline BOOL LASwriteItemCompressed_RGBNIR14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASwriteItemCompressed_RGBNIR14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
 {
   /* should only be called when context is unused */
 
@@ -1556,7 +1556,7 @@ BOOL LASwriteItemCompressed_RGBNIR14_v4::init(const U8* item, U32& context)
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_RGBNIR14_v4::write(const U8* item, U32& context)
+inline LAStools::BOOL LASwriteItemCompressed_RGBNIR14_v4::write(const U8* item, U32& context)
 {
   // get last
 
@@ -1649,7 +1649,7 @@ inline BOOL LASwriteItemCompressed_RGBNIR14_v4::write(const U8* item, U32& conte
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_RGBNIR14_v4::chunk_sizes()
+inline LAStools::BOOL LASwriteItemCompressed_RGBNIR14_v4::chunk_sizes()
 {
   U32 num_bytes = 0;
   ByteStreamOut* outstream = enc->getByteStreamOut();
@@ -1686,7 +1686,7 @@ inline BOOL LASwriteItemCompressed_RGBNIR14_v4::chunk_sizes()
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_RGBNIR14_v4::chunk_bytes()
+inline LAStools::BOOL LASwriteItemCompressed_RGBNIR14_v4::chunk_bytes()
 {
   U32 num_bytes = 0;
   ByteStreamOut* outstream = enc->getByteStreamOut();
@@ -1782,7 +1782,7 @@ LASwriteItemCompressed_WAVEPACKET14_v4::~LASwriteItemCompressed_WAVEPACKET14_v4(
   }
 }
 
-inline BOOL LASwriteItemCompressed_WAVEPACKET14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASwriteItemCompressed_WAVEPACKET14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
 {
   /* should only be called when context is unused */
 
@@ -1881,7 +1881,7 @@ BOOL LASwriteItemCompressed_WAVEPACKET14_v4::init(const U8* item, U32& context)
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_WAVEPACKET14_v4::write(const U8* item, U32& context)
+inline LAStools::BOOL LASwriteItemCompressed_WAVEPACKET14_v4::write(const U8* item, U32& context)
 {
   // get last
 
@@ -1954,7 +1954,7 @@ inline BOOL LASwriteItemCompressed_WAVEPACKET14_v4::write(const U8* item, U32& c
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_WAVEPACKET14_v4::chunk_sizes()
+inline LAStools::BOOL LASwriteItemCompressed_WAVEPACKET14_v4::chunk_sizes()
 {
   U32 num_bytes = 0;
   ByteStreamOut* outstream = enc->getByteStreamOut();
@@ -1979,7 +1979,7 @@ inline BOOL LASwriteItemCompressed_WAVEPACKET14_v4::chunk_sizes()
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_WAVEPACKET14_v4::chunk_bytes()
+inline LAStools::BOOL LASwriteItemCompressed_WAVEPACKET14_v4::chunk_bytes()
 {
   U32 num_bytes = 0;
   ByteStreamOut* outstream = enc->getByteStreamOut();
@@ -2085,7 +2085,7 @@ LASwriteItemCompressed_BYTE14_v4::~LASwriteItemCompressed_BYTE14_v4()
   if (changed_Bytes) delete [] changed_Bytes;
 }
 
-inline BOOL LASwriteItemCompressed_BYTE14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASwriteItemCompressed_BYTE14_v4::createAndInitModelsAndCompressors(U32 context, const U8* item)
 {
   U32 i;
 
@@ -2207,7 +2207,7 @@ BOOL LASwriteItemCompressed_BYTE14_v4::init(const U8* item, U32& context)
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_BYTE14_v4::write(const U8* item, U32& context)
+inline LAStools::BOOL LASwriteItemCompressed_BYTE14_v4::write(const U8* item, U32& context)
 {
   // get last
 
@@ -2242,7 +2242,7 @@ inline BOOL LASwriteItemCompressed_BYTE14_v4::write(const U8* item, U32& context
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_BYTE14_v4::chunk_sizes()
+inline LAStools::BOOL LASwriteItemCompressed_BYTE14_v4::chunk_sizes()
 {
   U32 i;
   U32 num_bytes = 0;
@@ -2270,7 +2270,7 @@ inline BOOL LASwriteItemCompressed_BYTE14_v4::chunk_sizes()
   return TRUE;
 }
 
-inline BOOL LASwriteItemCompressed_BYTE14_v4::chunk_bytes()
+inline LAStools::BOOL LASwriteItemCompressed_BYTE14_v4::chunk_bytes()
 {
   U32 i;
   U32 num_bytes = 0;

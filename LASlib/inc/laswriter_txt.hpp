@@ -39,37 +39,37 @@ class LASwriterTXT : public LASwriter
 {
 public:
 
-  void set_pts(BOOL pts);
-  void set_ptx(BOOL ptx);
+  void set_pts(LAStools::BOOL pts);
+  void set_ptx(LAStools::BOOL ptx);
   void set_scale_rgb(F32 scale_rgb);
 
-  BOOL refile(FILE* file);
+  LAStools::BOOL refile(FILE* file);
 
-  BOOL open(const CHAR* file_name, const LASheader* header, const CHAR* parse_string=0, const CHAR* separator=0);
-  BOOL open(FILE* file, const LASheader* header, const CHAR* parse_string=0, const CHAR* separator=0);
+  LAStools::BOOL open(const CHAR* file_name, const LASheader* header, const CHAR* parse_string=0, const CHAR* separator=0);
+  LAStools::BOOL open(FILE* file, const LASheader* header, const CHAR* parse_string=0, const CHAR* separator=0);
 
-  BOOL write_point(const LASpoint* point);
-  BOOL chunk() { return FALSE; };
+  LAStools::BOOL write_point(const LASpoint* point);
+  LAStools::BOOL chunk() { return FALSE; };
 
-  BOOL update_header(const LASheader* header, BOOL use_inventory=FALSE, BOOL update_extra_bytes=FALSE);
-  I64 close(BOOL update_npoints=TRUE);
+  LAStools::BOOL update_header(const LASheader* header, LAStools::BOOL use_inventory=FALSE, LAStools::BOOL update_extra_bytes=FALSE);
+  I64 close(LAStools::BOOL update_npoints=TRUE);
 
   LASwriterTXT();
   ~LASwriterTXT();
 
 private:
-  BOOL close_file;
+  LAStools::BOOL close_file;
   FILE* file;
   const LASheader* header;
   CHAR* parse_string;
-  BOOL opts;
-  BOOL optx;
+  LAStools::BOOL opts;
+  LAStools::BOOL optx;
   F32 scale_rgb;
   CHAR separator_sign;
   CHAR printstring[512];
   I32 attribute_starts[10];
-  BOOL check_parse_string(const CHAR* parse_string);
-  BOOL unparse_attribute(const LASpoint* point, I32 index);
+  LAStools::BOOL check_parse_string(const CHAR* parse_string);
+  LAStools::BOOL unparse_attribute(const LASpoint* point, I32 index);
 };
 
 #endif

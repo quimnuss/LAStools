@@ -41,7 +41,7 @@ class ByteStreamOut;
 class LASwriteItem
 {
 public:
-  virtual BOOL write(const U8* item, U32& context)=0;
+  virtual LAStools::BOOL write(const U8* item, U32& context)=0;
 
   virtual ~LASwriteItem(){};
 };
@@ -53,7 +53,7 @@ public:
   {
     outstream = 0;
   };
-  BOOL init(ByteStreamOut* outstream)
+  LAStools::BOOL init(ByteStreamOut* outstream)
   {
     if (!outstream) return FALSE;
     this->outstream = outstream;
@@ -67,9 +67,9 @@ protected:
 class LASwriteItemCompressed : public LASwriteItem
 {
 public:
-  virtual BOOL init(const U8* item, U32& context)=0;
-  virtual BOOL chunk_sizes() { return FALSE; };
-  virtual BOOL chunk_bytes() { return FALSE; };
+  virtual LAStools::BOOL init(const U8* item, U32& context)=0;
+  virtual LAStools::BOOL chunk_sizes() { return FALSE; };
+  virtual LAStools::BOOL chunk_bytes() { return FALSE; };
 
   virtual ~LASwriteItemCompressed(){};
 };

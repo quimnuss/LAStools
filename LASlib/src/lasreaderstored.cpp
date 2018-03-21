@@ -258,7 +258,7 @@ BOOL LASreaderStored::read_point_default()
   return FALSE;
 }
 
-void LASreaderStored::close(BOOL close_stream)
+void LASreaderStored::close(LAStools::BOOL close_stream)
 {
   if (lasreader) 
   {

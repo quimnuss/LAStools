@@ -60,26 +60,26 @@ public:
 
   // create spatial index
   void prepare(LASquadtree* spatial, I32 threshold=1000);
-  BOOL add(const F64 x, const F64 y, const U32 index);
-  void complete(U32 minimum_points=100000, I32 maximum_intervals=-1, const BOOL verbose=TRUE);
+  LAStools::BOOL add(const F64 x, const F64 y, const U32 index);
+  void complete(U32 minimum_points=100000, I32 maximum_intervals=-1, const LAStools::BOOL verbose=TRUE);
 
   // read from file or write to file
-  BOOL read(FILE* file);
-  BOOL write(FILE* file) const;
-  BOOL read(const char* file_name);
-  BOOL append(const char* file_name) const;
-  BOOL write(const char* file_name) const;
-  BOOL read(ByteStreamIn* stream);
-  BOOL write(ByteStreamOut* stream) const;
+  LAStools::BOOL read(FILE* file);
+  LAStools::BOOL write(FILE* file) const;
+  LAStools::BOOL read(const char* file_name);
+  LAStools::BOOL append(const char* file_name) const;
+  LAStools::BOOL write(const char* file_name) const;
+  LAStools::BOOL read(ByteStreamIn* stream);
+  LAStools::BOOL write(ByteStreamOut* stream) const;
 
   // intersect
-  BOOL intersect_rectangle(const F64 r_min_x, const F64 r_min_y, const F64 r_max_x, const F64 r_max_y);
-  BOOL intersect_tile(const F32 ll_x, const F32 ll_y, const F32 size);
-  BOOL intersect_circle(const F64 center_x, const F64 center_y, const F64 radius);
+  LAStools::BOOL intersect_rectangle(const F64 r_min_x, const F64 r_min_y, const F64 r_max_x, const F64 r_max_y);
+  LAStools::BOOL intersect_tile(const F32 ll_x, const F32 ll_y, const F32 size);
+  LAStools::BOOL intersect_circle(const F64 center_x, const F64 center_y, const F64 radius);
 
   // access the intersected intervals
-  BOOL get_intervals();
-  BOOL has_intervals();
+  LAStools::BOOL get_intervals();
+  LAStools::BOOL has_intervals();
 
   U32 start;
   U32 end;
@@ -89,24 +89,24 @@ public:
 
   // seek to next interval
 #ifdef LASZIPDLL_EXPORTS
-  BOOL seek_next(LASreadPoint* reader, I64 &p_count);
+  LAStools::BOOL seek_next(LASreadPoint* reader, I64 &p_count);
 #else
-  BOOL seek_next(LASreader* lasreader);
+  LAStools::BOOL seek_next(LASreader* lasreader);
 #endif
 
   // for debugging
-  void print(BOOL verbose);
+  void print(LAStools::BOOL verbose);
 
   // for visualization
   LASquadtree* get_spatial() const;
   LASinterval* get_interval() const;
 
 private:
-  BOOL merge_intervals();
+  LAStools::BOOL merge_intervals();
 
   LASquadtree* spatial;
   LASinterval* interval;
-  BOOL have_interval;
+  LAStools::BOOL have_interval;
 };
 
 #endif

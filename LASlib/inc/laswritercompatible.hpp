@@ -37,13 +37,13 @@
 class LASwriterCompatibleDown : public LASwriter
 {
 public:
-  BOOL open(LASheader* header, LASwriteOpener* laswriteopener, BOOL moveCRSfromEVLRtoVLR=FALSE, BOOL moveEVLRtoVLR=FALSE);
+  LAStools::BOOL open(LASheader* header, LASwriteOpener* laswriteopener, LAStools::BOOL moveCRSfromEVLRtoVLR=FALSE, LAStools::BOOL moveEVLRtoVLR=FALSE);
 
-  BOOL write_point(const LASpoint* point);
-  BOOL chunk() { return FALSE; };
+  LAStools::BOOL write_point(const LASpoint* point);
+  LAStools::BOOL chunk() { return FALSE; };
 
-  BOOL update_header(const LASheader* header, BOOL use_inventory=FALSE, BOOL update_extra_bytes=FALSE);
-  I64 close(BOOL update_npoints=TRUE);
+  LAStools::BOOL update_header(const LASheader* header, LAStools::BOOL use_inventory=FALSE, LAStools::BOOL update_extra_bytes=FALSE);
+  I64 close(LAStools::BOOL update_npoints=TRUE);
 
   LASwriterCompatibleDown();
   ~LASwriterCompatibleDown();
@@ -62,13 +62,13 @@ private:
 class LASwriterCompatibleUp : public LASwriter
 {
 public:
-  BOOL open(LASheader* header, LASwriteOpener* laswriteopener);
+  LAStools::BOOL open(LASheader* header, LASwriteOpener* laswriteopener);
 
-  BOOL write_point(const LASpoint* point);
-  BOOL chunk() { return FALSE; };
+  LAStools::BOOL write_point(const LASpoint* point);
+  LAStools::BOOL chunk() { return FALSE; };
 
-  BOOL update_header(const LASheader* header, BOOL use_inventory=FALSE, BOOL update_extra_bytes=FALSE);
-  I64 close(BOOL update_npoints=TRUE);
+  LAStools::BOOL update_header(const LASheader* header, LAStools::BOOL use_inventory=FALSE, LAStools::BOOL update_extra_bytes=FALSE);
+  I64 close(LAStools::BOOL update_npoints=TRUE);
 
   LASwriterCompatibleUp();
   ~LASwriterCompatibleUp();

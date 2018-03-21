@@ -88,7 +88,7 @@ bool LASzipper::chunk()
 
 bool LASzipper::close()
 {
-  BOOL done = TRUE;
+  LAStools::BOOL done = TRUE;
   if (writer)
   {
     done = writer->done();

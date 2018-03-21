@@ -53,7 +53,7 @@ public:
   {
     instream = 0;
   };
-  BOOL init(ByteStreamIn* instream)
+  LAStools::BOOL init(ByteStreamIn* instream)
   {
     if (!instream) return FALSE;
     this->instream = instream;
@@ -67,8 +67,8 @@ protected:
 class LASreadItemCompressed : public LASreadItem
 {
 public:
-  virtual BOOL chunk_sizes() { return FALSE; };
-  virtual BOOL init(const U8* item, U32& context)=0;
+  virtual LAStools::BOOL chunk_sizes() { return FALSE; };
+  virtual LAStools::BOOL init(const U8* item, U32& context)=0;
 
   virtual ~LASreadItemCompressed(){};
 };

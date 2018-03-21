@@ -47,8 +47,8 @@ public:
 
   LASreadItemCompressed_POINT14_v3(ArithmeticDecoder* dec, const U32 decompress_selective=LASZIP_DECOMPRESS_SELECTIVE_ALL);
 
-  BOOL chunk_sizes();
-  BOOL init(const U8* item, U32& context); // context is set
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL init(const U8* item, U32& context); // context is set
   void read(U8* item, U32& context);       // context is set
 
   ~LASreadItemCompressed_POINT14_v3();
@@ -79,14 +79,14 @@ private:
   ArithmeticDecoder* dec_point_source;
   ArithmeticDecoder* dec_gps_time;
 
-  BOOL changed_Z;
-  BOOL changed_classification;
-  BOOL changed_flags;
-  BOOL changed_intensity;
-  BOOL changed_scan_angle;
-  BOOL changed_user_data;
-  BOOL changed_point_source;
-  BOOL changed_gps_time;
+  LAStools::BOOL changed_Z;
+  LAStools::BOOL changed_classification;
+  LAStools::BOOL changed_flags;
+  LAStools::BOOL changed_intensity;
+  LAStools::BOOL changed_scan_angle;
+  LAStools::BOOL changed_user_data;
+  LAStools::BOOL changed_point_source;
+  LAStools::BOOL changed_gps_time;
 
   U32 num_bytes_channel_returns_XY;
   U32 num_bytes_Z;
@@ -98,14 +98,14 @@ private:
   U32 num_bytes_point_source;
   U32 num_bytes_gps_time;
 
-  BOOL requested_Z;
-  BOOL requested_classification;
-  BOOL requested_flags;
-  BOOL requested_intensity;
-  BOOL requested_scan_angle;
-  BOOL requested_user_data;
-  BOOL requested_point_source;
-  BOOL requested_gps_time;
+  LAStools::BOOL requested_Z;
+  LAStools::BOOL requested_classification;
+  LAStools::BOOL requested_flags;
+  LAStools::BOOL requested_intensity;
+  LAStools::BOOL requested_scan_angle;
+  LAStools::BOOL requested_user_data;
+  LAStools::BOOL requested_point_source;
+  LAStools::BOOL requested_gps_time;
 
   U8* bytes;
   U32 num_bytes_allocated;
@@ -113,7 +113,7 @@ private:
   U32 current_context;
   LAScontextPOINT14 contexts[4];
 
-  BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
   void read_gps_time();
 };
 
@@ -123,8 +123,8 @@ public:
 
   LASreadItemCompressed_RGB14_v3(ArithmeticDecoder* dec, const U32 decompress_selective=LASZIP_DECOMPRESS_SELECTIVE_ALL);
 
-  BOOL chunk_sizes();
-  BOOL init(const U8* item, U32& context); // context is only read
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL init(const U8* item, U32& context); // context is only read
   void read(U8* item, U32& context);       // context is only read
 
   ~LASreadItemCompressed_RGB14_v3();
@@ -139,11 +139,11 @@ private:
 
   ArithmeticDecoder* dec_RGB;
 
-  BOOL changed_RGB;
+  LAStools::BOOL changed_RGB;
 
   U32 num_bytes_RGB;
 
-  BOOL requested_RGB;
+  LAStools::BOOL requested_RGB;
 
   U8* bytes;
   U32 num_bytes_allocated;
@@ -151,7 +151,7 @@ private:
   U32 current_context;
   LAScontextRGB14 contexts[4];
 
-  BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
 };
 
 class LASreadItemCompressed_RGBNIR14_v3 : public LASreadItemCompressed
@@ -160,8 +160,8 @@ public:
 
   LASreadItemCompressed_RGBNIR14_v3(ArithmeticDecoder* dec, const U32 decompress_selective=LASZIP_DECOMPRESS_SELECTIVE_ALL);
 
-  BOOL chunk_sizes();
-  BOOL init(const U8* item, U32& context); // context is only read
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL init(const U8* item, U32& context); // context is only read
   void read(U8* item, U32& context);       // context is only read
 
   ~LASreadItemCompressed_RGBNIR14_v3();
@@ -178,14 +178,14 @@ private:
   ArithmeticDecoder* dec_RGB;
   ArithmeticDecoder* dec_NIR;
 
-  BOOL changed_RGB;
-  BOOL changed_NIR;
+  LAStools::BOOL changed_RGB;
+  LAStools::BOOL changed_NIR;
 
   U32 num_bytes_RGB;
   U32 num_bytes_NIR;
 
-  BOOL requested_RGB;
-  BOOL requested_NIR;
+  LAStools::BOOL requested_RGB;
+  LAStools::BOOL requested_NIR;
 
   U8* bytes;
   U32 num_bytes_allocated;
@@ -193,7 +193,7 @@ private:
   U32 current_context;
   LAScontextRGBNIR14 contexts[4];
 
-  BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
 };
 
 class LASreadItemCompressed_WAVEPACKET14_v3 : public LASreadItemCompressed
@@ -202,8 +202,8 @@ public:
 
   LASreadItemCompressed_WAVEPACKET14_v3(ArithmeticDecoder* dec, const U32 decompress_selective=LASZIP_DECOMPRESS_SELECTIVE_ALL);
 
-  BOOL chunk_sizes();
-  BOOL init(const U8* item, U32& context); // context is only read
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL init(const U8* item, U32& context); // context is only read
   void read(U8* item, U32& context);       // context is only read
 
   ~LASreadItemCompressed_WAVEPACKET14_v3();
@@ -218,11 +218,11 @@ private:
 
   ArithmeticDecoder* dec_wavepacket;
 
-  BOOL changed_wavepacket;
+  LAStools::BOOL changed_wavepacket;
 
   U32 num_bytes_wavepacket;
 
-  BOOL requested_wavepacket;
+  LAStools::BOOL requested_wavepacket;
 
   U8* bytes;
   U32 num_bytes_allocated;
@@ -230,7 +230,7 @@ private:
   U32 current_context;
   LAScontextWAVEPACKET14 contexts[4];
 
-  BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
 };
 
 class LASreadItemCompressed_BYTE14_v3 : public LASreadItemCompressed
@@ -239,8 +239,8 @@ public:
 
   LASreadItemCompressed_BYTE14_v3(ArithmeticDecoder* dec, U32 number, const U32 decompress_selective=LASZIP_DECOMPRESS_SELECTIVE_ALL);
 
-  BOOL chunk_sizes();
-  BOOL init(const U8* item, U32& context); // context is only read
+  LAStools::BOOL chunk_sizes();
+  LAStools::BOOL init(const U8* item, U32& context); // context is only read
   void read(U8* item, U32& context);       // context is only read
 
   ~LASreadItemCompressed_BYTE14_v3();
@@ -257,9 +257,9 @@ private:
 
   U32* num_bytes_Bytes;
 
-  BOOL* changed_Bytes;
+  LAStools::BOOL* changed_Bytes;
 
-  BOOL* requested_Bytes;
+  LAStools::BOOL* requested_Bytes;
 
   U8* bytes;
   U32 num_bytes_allocated;
@@ -268,7 +268,7 @@ private:
   LAScontextBYTE14 contexts[4];
 
   U32 number;
-  BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
+  LAStools::BOOL createAndInitModelsAndDecompressors(U32 context, const U8* item);
 };
 
 #endif

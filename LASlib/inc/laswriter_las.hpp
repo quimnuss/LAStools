@@ -60,20 +60,20 @@ class LASwriterLAS : public LASwriter
 {
 public:
 
-  BOOL refile(FILE* file);
-  void set_delete_stream(BOOL delete_stream=TRUE) { this->delete_stream = delete_stream; };
+  LAStools::BOOL refile(FILE* file);
+  void set_delete_stream(LAStools::BOOL delete_stream=TRUE) { this->delete_stream = delete_stream; };
 
-  BOOL open(const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000);
-  BOOL open(const char* file_name, const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000, I32 io_buffer_size=LAS_TOOLS_IO_OBUFFER_SIZE);
-  BOOL open(FILE* file, const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000);
-  BOOL open(ostream& ostream, const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000);
-  BOOL open(ByteStreamOut* stream, const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000);
+  LAStools::BOOL open(const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000);
+  LAStools::BOOL open(const char* file_name, const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000, I32 io_buffer_size=LAS_TOOLS_IO_OBUFFER_SIZE);
+  LAStools::BOOL open(FILE* file, const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000);
+  LAStools::BOOL open(ostream& ostream, const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000);
+  LAStools::BOOL open(ByteStreamOut* stream, const LASheader* header, U32 compressor=LASZIP_COMPRESSOR_NONE, I32 requested_version=0, I32 chunk_size=50000);
 
-  BOOL write_point(const LASpoint* point);
-  BOOL chunk();
+  LAStools::BOOL write_point(const LASpoint* point);
+  LAStools::BOOL chunk();
 
-  BOOL update_header(const LASheader* header, BOOL use_inventory=FALSE, BOOL update_extra_bytes=FALSE);
-  I64 close(BOOL update_npoints=TRUE);
+  LAStools::BOOL update_header(const LASheader* header, LAStools::BOOL use_inventory=FALSE, LAStools::BOOL update_extra_bytes=FALSE);
+  I64 close(LAStools::BOOL update_npoints=TRUE);
 
   LASwriterLAS();
   ~LASwriterLAS();
@@ -81,11 +81,11 @@ public:
 private:
   FILE* file;
   ByteStreamOut* stream;
-  BOOL delete_stream;
+  LAStools::BOOL delete_stream;
   LASwritePoint* writer;
   I64 header_start_position;
-  BOOL writing_las_1_4;
-  BOOL writing_new_point_type;
+  LAStools::BOOL writing_las_1_4;
+  LAStools::BOOL writing_new_point_type;
   // for delayed write of EVLRs
   I64 start_of_first_extended_variable_length_record;
   U32 number_of_extended_variable_length_records;

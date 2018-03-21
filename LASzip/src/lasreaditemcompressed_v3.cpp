@@ -60,7 +60,7 @@ typedef struct LASpoint14
   U8 number_of_returns : 4;
 
   U8 dummy[3]; // for 8 byte alignment of the GPS time
-  BOOL gps_time_change;
+  LAStools::BOOL gps_time_change;
 
   F64 gps_time;
   U16 rgb[4];
@@ -216,7 +216,7 @@ LASreadItemCompressed_POINT14_v3::~LASreadItemCompressed_POINT14_v3()
   if (bytes) delete [] bytes;
 }
 
-inline BOOL LASreadItemCompressed_POINT14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASreadItemCompressed_POINT14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
 {
   I32 i;
 
@@ -743,9 +743,9 @@ inline void LASreadItemCompressed_POINT14_v3::read(U8* item, U32& context)
 
   // determine changed attributes
 
-  BOOL point_source_change = (changed_values & (1 << 5) ? TRUE : FALSE);
-  BOOL gps_time_change = (changed_values & (1 << 4) ? TRUE : FALSE);
-  BOOL scan_angle_change = (changed_values & (1 << 3) ? TRUE : FALSE);
+  LAStools::BOOL point_source_change = (changed_values & (1 << 5) ? TRUE : FALSE);
+  LAStools::BOOL gps_time_change = (changed_values & (1 << 4) ? TRUE : FALSE);
+  LAStools::BOOL scan_angle_change = (changed_values & (1 << 3) ? TRUE : FALSE);
 
   // get last return counts
 
@@ -1161,7 +1161,7 @@ LASreadItemCompressed_RGB14_v3::~LASreadItemCompressed_RGB14_v3()
   if (bytes) delete [] bytes;
 }
 
-inline BOOL LASreadItemCompressed_RGB14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASreadItemCompressed_RGB14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
 {
   /* should only be called when context is unused */
 
@@ -1485,7 +1485,7 @@ LASreadItemCompressed_RGBNIR14_v3::~LASreadItemCompressed_RGBNIR14_v3()
   if (bytes) delete [] bytes;
 }
 
-inline BOOL LASreadItemCompressed_RGBNIR14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASreadItemCompressed_RGBNIR14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
 {
   /* should only be called when context is unused */
 
@@ -1884,7 +1884,7 @@ LASreadItemCompressed_WAVEPACKET14_v3::~LASreadItemCompressed_WAVEPACKET14_v3()
   if (bytes) delete [] bytes;
 }
 
-inline BOOL LASreadItemCompressed_WAVEPACKET14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASreadItemCompressed_WAVEPACKET14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
 {
   /* should only be called when context is unused */
 
@@ -2187,7 +2187,7 @@ LASreadItemCompressed_BYTE14_v3::~LASreadItemCompressed_BYTE14_v3()
   if (bytes) delete [] bytes;
 }
 
-inline BOOL LASreadItemCompressed_BYTE14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
+inline LAStools::BOOL LASreadItemCompressed_BYTE14_v3::createAndInitModelsAndDecompressors(U32 context, const U8* item)
 {
   U32 i;
 

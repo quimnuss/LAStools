@@ -41,17 +41,17 @@ class LASwriterQFIT : public LASwriter
 {
 public:
 
-  BOOL refile(FILE* file);
+  LAStools::BOOL refile(FILE* file);
 
-  BOOL open(const char* file_name, const LASheader* header, I32 version=48, U32 io_buffer_size=65536);
-  BOOL open(FILE* file, const LASheader* header, I32 version=48);
-  BOOL open(ByteStreamOut* stream, const LASheader* header, I32 version=48);
+  LAStools::BOOL open(const char* file_name, const LASheader* header, I32 version=48, U32 io_buffer_size=65536);
+  LAStools::BOOL open(FILE* file, const LASheader* header, I32 version=48);
+  LAStools::BOOL open(ByteStreamOut* stream, const LASheader* header, I32 version=48);
 
-  BOOL write_point(const LASpoint* point);
-  BOOL chunk() { return FALSE; };
+  LAStools::BOOL write_point(const LASpoint* point);
+  LAStools::BOOL chunk() { return FALSE; };
 
-  BOOL update_header(const LASheader* header, BOOL use_inventory=FALSE, BOOL update_extra_bytes=FALSE);
-  I64 close(BOOL update_npoints=TRUE);
+  LAStools::BOOL update_header(const LASheader* header, LAStools::BOOL use_inventory=FALSE, LAStools::BOOL update_extra_bytes=FALSE);
+  I64 close(LAStools::BOOL update_npoints=TRUE);
 
   LASwriterQFIT();
   ~LASwriterQFIT();
@@ -60,8 +60,8 @@ private:
   ByteStreamOut* stream;
   FILE* file;
   I32 version;
-  BOOL endian_swap;
-  BOOL rescale_reoffset;
+  LAStools::BOOL endian_swap;
+  LAStools::BOOL rescale_reoffset;
   I32 buffer[14];
   I32 scan_azimuth_array_offset;
   I32 pitch_array_offset;

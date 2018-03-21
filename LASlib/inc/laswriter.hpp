@@ -55,12 +55,12 @@ public:
   I64 p_count;
   LASinventory inventory;
 
-  virtual BOOL write_point(const LASpoint* point) = 0;
+  virtual LAStools::BOOL write_point(const LASpoint* point) = 0;
   virtual void update_inventory(const LASpoint* point) { inventory.add(point); };
-  virtual BOOL chunk() = 0;
+  virtual LAStools::BOOL chunk() = 0;
 
-  virtual BOOL update_header(const LASheader* header, BOOL use_inventory=FALSE, BOOL update_extra_bytes=FALSE) = 0;
-  virtual I64 close(BOOL update_npoints=TRUE) = 0;
+  virtual LAStools::BOOL update_header(const LASheader* header, LAStools::BOOL use_inventory=FALSE, LAStools::BOOL update_extra_bytes=FALSE) = 0;
+  virtual I64 close(LAStools::BOOL update_npoints=TRUE) = 0;
 
   LASwriter() { npoints = 0; p_count = 0; };
   virtual ~LASwriter() {};
@@ -73,14 +73,14 @@ class LASLIB_DLL LASwriteOpener
 public:
   void set_io_obuffer_size(I32 io_obuffer_size);
   inline I32 get_io_obuffer_size() const { return io_obuffer_size; };
-  BOOL set_directory(const CHAR* directory);
+  LAStools::BOOL set_directory(const CHAR* directory);
   void set_file_name(const CHAR* file_name);
   void set_appendix(const CHAR* appendix);
   void set_cut(U32 cut);
-  void set_native(BOOL native);
-  BOOL set_format(I32 format);
-  BOOL set_format(const CHAR* format);
-  void set_force(BOOL force);
+  void set_native(LAStools::BOOL native);
+  LAStools::BOOL set_format(I32 format);
+  LAStools::BOOL set_format(const CHAR* format);
+  void set_force(LAStools::BOOL force);
   void set_chunk_size(U32 chunk_size);
   void make_numbered_file_name(const CHAR* file_name, I32 digits);
   void make_file_name(const CHAR* file_name, I32 file_number=-1);
@@ -90,8 +90,8 @@ public:
   const CHAR* get_file_name_only() const;
   CHAR* get_file_name_base() const;
   U32 get_cut() const;
-  BOOL get_native() const;
-  BOOL format_was_specified() const;
+  LAStools::BOOL get_native() const;
+  LAStools::BOOL format_was_specified() const;
   I32 get_format() const;
   const CHAR* get_format_name() const;
   void set_parse_string(const CHAR* parse_string);
@@ -100,9 +100,9 @@ public:
   inline const CHAR* get_separator() const { return separator; };
   void set_scale_rgb(F32 scale_rgb);
   void usage() const;
-  BOOL parse(int argc, char* argv[]);
-  BOOL active() const;
-  BOOL is_piped() const;
+  LAStools::BOOL parse(int argc, char* argv[]);
+  LAStools::BOOL active() const;
+  LAStools::BOOL is_piped() const;
   LASwriter* open(const LASheader* header);
   LASwaveform13writer* open_waveform13(const LASheader* lasheader);
   LASwriteOpener();
@@ -116,19 +116,19 @@ private:
   CHAR* file_name;
   CHAR* appendix;
   U32 cut;
-  BOOL opts;
-  BOOL optx;
+  LAStools::BOOL opts;
+  LAStools::BOOL optx;
   CHAR* parse_string;
   CHAR* separator;
   F32 scale_rgb;
   U32 format;
-  BOOL specified;
-  BOOL force;
-  BOOL native;
+  LAStools::BOOL specified;
+  LAStools::BOOL force;
+  LAStools::BOOL native;
   U32 chunk_size;
-  BOOL use_stdout;
-  BOOL use_nil;
-  BOOL buffered;
+  LAStools::BOOL use_stdout;
+  LAStools::BOOL use_nil;
+  LAStools::BOOL buffered;
 };
 
 #endif
