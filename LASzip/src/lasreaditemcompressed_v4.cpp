@@ -376,7 +376,7 @@ inline LAStools::BOOL LASreadItemCompressed_POINT14_v4::createAndInitModelsAndDe
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_POINT14_v4::chunk_sizes()
+LAStools::BOOL LASreadItemCompressed_POINT14_v4::chunk_sizes()
 {
   /* for layered compression 'dec' only hands over the stream */
 
@@ -397,7 +397,7 @@ BOOL LASreadItemCompressed_POINT14_v4::chunk_sizes()
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_POINT14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASreadItemCompressed_POINT14_v4::init(const U8* item, U32& context)
 {
   /* for layered compression 'dec' only hands over the stream */
 
@@ -1199,7 +1199,7 @@ inline LAStools::BOOL LASreadItemCompressed_RGB14_v4::createAndInitModelsAndDeco
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_RGB14_v4::chunk_sizes()
+LAStools::BOOL LASreadItemCompressed_RGB14_v4::chunk_sizes()
 {
   /* for layered compression 'dec' only hands over the stream */
 
@@ -1212,7 +1212,7 @@ BOOL LASreadItemCompressed_RGB14_v4::chunk_sizes()
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_RGB14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASreadItemCompressed_RGB14_v4::init(const U8* item, U32& context)
 {
   /* for layered compression 'dec' only hands over the stream */
 
@@ -1542,7 +1542,7 @@ inline LAStools::BOOL LASreadItemCompressed_RGBNIR14_v4::createAndInitModelsAndD
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_RGBNIR14_v4::chunk_sizes()
+LAStools::BOOL LASreadItemCompressed_RGBNIR14_v4::chunk_sizes()
 {
   /* for layered compression 'dec' only hands over the stream */
 
@@ -1556,7 +1556,7 @@ BOOL LASreadItemCompressed_RGBNIR14_v4::chunk_sizes()
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_RGBNIR14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASreadItemCompressed_RGBNIR14_v4::init(const U8* item, U32& context)
 {
   /* for layered compression 'dec' only hands over the stream */
 
@@ -1931,7 +1931,7 @@ inline LAStools::BOOL LASreadItemCompressed_WAVEPACKET14_v4::createAndInitModels
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_WAVEPACKET14_v4::chunk_sizes()
+LAStools::BOOL LASreadItemCompressed_WAVEPACKET14_v4::chunk_sizes()
 {
   /* for layered compression 'dec' only hands over the stream */
 
@@ -1944,7 +1944,7 @@ BOOL LASreadItemCompressed_WAVEPACKET14_v4::chunk_sizes()
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_WAVEPACKET14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASreadItemCompressed_WAVEPACKET14_v4::init(const U8* item, U32& context)
 {
   /* for layered compression 'dec' only hands over the stream */
 
@@ -2112,9 +2112,9 @@ LASreadItemCompressed_BYTE14_v4::LASreadItemCompressed_BYTE14_v4(ArithmeticDecod
 
   num_bytes_Bytes = new U32[number];
 
-  changed_Bytes = new BOOL[number];
+  changed_Bytes = new LAStools::BOOL[number];
 
-  requested_Bytes = new BOOL[number];
+  requested_Bytes = new LAStools::BOOL[number];
 
   U32 i;
   for (i = 0; i < number; i++)
@@ -2226,7 +2226,7 @@ inline LAStools::BOOL LASreadItemCompressed_BYTE14_v4::createAndInitModelsAndDec
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_BYTE14_v4::chunk_sizes()
+LAStools::BOOL LASreadItemCompressed_BYTE14_v4::chunk_sizes()
 {
   U32 i;
 
@@ -2244,7 +2244,7 @@ BOOL LASreadItemCompressed_BYTE14_v4::chunk_sizes()
   return TRUE;
 }
 
-BOOL LASreadItemCompressed_BYTE14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASreadItemCompressed_BYTE14_v4::init(const U8* item, U32& context)
 {
   U32 i;
 

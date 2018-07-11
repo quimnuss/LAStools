@@ -360,7 +360,7 @@ inline LAStools::BOOL LASwriteItemCompressed_POINT14_v4::createAndInitModelsAndC
   return TRUE;
 }
 
-BOOL LASwriteItemCompressed_POINT14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASwriteItemCompressed_POINT14_v4::init(const U8* item, U32& context)
 {
   /* on the first init create outstreams and encoders */
 
@@ -1204,7 +1204,7 @@ inline LAStools::BOOL LASwriteItemCompressed_RGB14_v4::createAndInitModelsAndCom
   return TRUE;
 }
 
-BOOL LASwriteItemCompressed_RGB14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASwriteItemCompressed_RGB14_v4::init(const U8* item, U32& context)
 {
   /* on the first init create outstreams and encoders */
 
@@ -1495,7 +1495,7 @@ inline LAStools::BOOL LASwriteItemCompressed_RGBNIR14_v4::createAndInitModelsAnd
   return TRUE;
 }
 
-BOOL LASwriteItemCompressed_RGBNIR14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASwriteItemCompressed_RGBNIR14_v4::init(const U8* item, U32& context)
 {
   /* on the first init create outstreams and encoders */
 
@@ -1826,7 +1826,7 @@ inline LAStools::BOOL LASwriteItemCompressed_WAVEPACKET14_v4::createAndInitModel
   return TRUE;
 }
 
-BOOL LASwriteItemCompressed_WAVEPACKET14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASwriteItemCompressed_WAVEPACKET14_v4::init(const U8* item, U32& context)
 {
   /* on the first init create outstreams and encoders */
 
@@ -2023,7 +2023,7 @@ LASwriteItemCompressed_BYTE14_v4::LASwriteItemCompressed_BYTE14_v4(ArithmeticEnc
   
   num_bytes_Bytes = new U32[number];
 
-  changed_Bytes = new BOOL[number];
+  changed_Bytes = new LAStools::BOOL[number];
 
   U32 i;
   for (i = 0; i < number; i++)
@@ -2124,7 +2124,7 @@ inline LAStools::BOOL LASwriteItemCompressed_BYTE14_v4::createAndInitModelsAndCo
   return TRUE;
 }
 
-BOOL LASwriteItemCompressed_BYTE14_v4::init(const U8* item, U32& context)
+LAStools::BOOL LASwriteItemCompressed_BYTE14_v4::init(const U8* item, U32& context)
 {
   U32 i;
 
